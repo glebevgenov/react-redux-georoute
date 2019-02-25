@@ -4,10 +4,10 @@ import Location from './Location';
 
 class LocationList extends Component {
     render() {
-        const { locationIndexes } = this.props;
+        const { locationIndex } = this.props;
         return (
             <ul className="list-group">
-                {locationIndexes.map((id) => {
+                {locationIndex.map((id) => {
                     return <Location key={id} id={id}/>;
                 })}
             </ul>

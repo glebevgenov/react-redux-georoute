@@ -8,7 +8,7 @@ export default (state = null, action) => {
         switch (action.type) {
             case 'append_location':
                 id = gId++;
-                draft.locationIndexes.push(id);
+                draft.locationIndex.push(id);
                 draft.locationList[id] = {
                     ...draft.newLocation,
                     id,
@@ -16,7 +16,7 @@ export default (state = null, action) => {
                 draft.newLocation.name = '';
                 break;
             case 'remove_location':
-                draft.locationIndexes.splice(draft.locationIndexes.indexOf(action.id), 1);
+                draft.locationIndex.splice(draft.locationIndex.indexOf(action.id), 1);
                 delete draft.locationList[action.id];
                 break;
             case 'update_location':
@@ -28,10 +28,10 @@ export default (state = null, action) => {
                 break;
             case 'move_location':
                 const { srcId, targetId } = action;
-                let oldIndex = state.locationIndexes.indexOf(srcId);
-                let newIndex = state.locationIndexes.indexOf(targetId);
-                draft.locationIndexes.splice(oldIndex, 1);
-                draft.locationIndexes.splice(newIndex, 0, srcId);
+                let oldIndex = state.locationIndex.indexOf(srcId);
+                let newIndex = state.locationIndex.indexOf(targetId);
+                draft.locationIndex.splice(oldIndex, 1);
+                draft.locationIndex.splice(newIndex, 0, srcId);
                 break;
             case 'set_new_location_name':
                 draft.newLocation.name = action.name;

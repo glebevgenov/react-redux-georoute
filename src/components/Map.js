@@ -9,8 +9,8 @@ const ROUTE_COLOR = '#CD5C5C';
 class Map extends Component {
     
     getPlacemarks() {
-        const { locationList, locationIndexes, onPlacemarkMove } = this.props;
-        return locationIndexes.map(id => {
+        const { locationList, locationIndex, onPlacemarkMove } = this.props;
+        return locationIndex.map(id => {
             const location = locationList[id];
             return <Placemark
                 key={id}
@@ -28,11 +28,11 @@ class Map extends Component {
     }
 
     getPath() {
-        const { locationList, locationIndexes } = this.props;
-        if (!locationIndexes.length) {
+        const { locationList, locationIndex } = this.props;
+        if (!locationIndex.length) {
             return null;
         }
-        const points = locationIndexes.map(id => ([locationList[id].lat, locationList[id].lng]));
+        const points = locationIndex.map(id => ([locationList[id].lat, locationList[id].lng]));
         return <Polyline
             geometry={points}
             options={{
