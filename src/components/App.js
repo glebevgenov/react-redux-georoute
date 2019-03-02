@@ -2,6 +2,8 @@ import React from 'react';
 import Route from './Route';
 import Map from './Map';
 import { YMaps } from 'react-yandex-maps';
+import HTML5Backend from 'react-dnd-html5-backend';
+import { DragDropContext } from 'react-dnd'
 
 const App = () => {
     return (
@@ -20,4 +22,4 @@ const App = () => {
     );
 };
 
-export default App;
+export default DragDropContext(HTML5Backend)(App);

@@ -9,10 +9,7 @@ export default (state = null, action) => {
             case 'append_location':
                 id = gId++;
                 draft.locationIndex.push(id);
-                draft.locationList[id] = {
-                    ...draft.newLocation,
-                    id,
-                };
+                draft.locationList[id] = Object.assign({ id }, draft.newLocation);
                 draft.newLocation.name = '';
                 break;
             case 'remove_location':
@@ -21,10 +18,7 @@ export default (state = null, action) => {
                 break;
             case 'update_location':
                 id = action.location.id;
-                draft.locationList[id] = {
-                    ...draft.locationList[id],
-                    ...action.location,
-                }
+                Object.assign(draft.locationList[id], action.location);
                 break;
             case 'move_location':
                 const { srcId, targetId } = action;
@@ -37,10 +31,7 @@ export default (state = null, action) => {
                 draft.newLocation.name = action.name;
                 break;
             case 'set_new_location_point':
-                draft.newLocation = {
-                    ...draft.newLocation,
-                    ...action.point,
-                };
+                Object.assign(draft.newLocation, action.point);
                 break;
             default:
                 return state;
