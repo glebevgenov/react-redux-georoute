@@ -11,6 +11,24 @@ const App = () => {
             <div className="App container my-5">
                 <div className="row">
                     <div className="col-md-4">
+                        <div className="card mb-2">
+                            <div className="card-body">
+                                <div className="card-title">
+                                    Гео-маршрут
+                                </div>
+                                <ul className="small">
+                                    <li>
+                                        введите название новой точки маршрута и нажмите Enter
+                                    </li>
+                                    <li>
+                                        новая точка появляется в центре карты
+                                    </li>
+                                    <li>
+                                        точки могут удаляться и перемещаться по списку
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                         <Route />
                     </div>
                     <div className="col-md-8">
